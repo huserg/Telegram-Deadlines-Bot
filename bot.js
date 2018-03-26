@@ -14,16 +14,15 @@ console.log("Server has initialized bot nickname. Nick: "+bot_informations.usern
 // Context data includes message info, timestamp, etc; check the official documentation or print ctx.
 bot.command('start', (ctx) => ctx.reply('Bot started.'));
 
+
+/*
 // Hears, instead of command, check if the given word or regexp is CONTAINED in user input and not necessarly at beginning.
 bot.hears('ymca', (ctx) => ctx.reply("*sing* It's fun to stay at the Y.M.C.A.!"));
 bot.hears(/torino/i, (ctx) => ctx.reply("Someone said Torino!?"));
 
-// Inline query support (@yourbot query). Can be used anywhere, even in groups. It works just like @gif bot.
-bot.on('inline_query', ctx => {
-    let query = ctx.update.inline_query.query;  // If you analyze the context structure, query field contains our query.
 if(query.startsWith("/")){  // If user input is @yourbot /command
-    if(query.startsWith("/audio_src")){ // If user input is @yourbot /audio_src
-        // In this case we answer with a list of ogg voice data.
+    if(query.startsWith("/add")){ // If user input is @yourbot /add
+        // In this case we want to add a new deadline
         // It will be shown as a tooltip. You can add more than 1 element in this JSON array. Check API usage "InlineResultVoice".
         return ctx.answerInlineQuery([
             {
@@ -63,6 +62,8 @@ if(query.startsWith("/")){  // If user input is @yourbot /command
     }
 }
 })
+*/
+
 
 // Start bot polling in order to not terminate Node.js application.
 bot.startPolling()

@@ -1,8 +1,8 @@
 {
   "requires": true,
-  "name": "Hes Exa Bot",
+  "name": "HesExaBot",
   "author": "R-Men",
-  "version": "0.1",
+  "version": "0.0.1",
   "description": "Create list for all exams and projects deadline",
   "main": "index.js",
   "scripts": {
