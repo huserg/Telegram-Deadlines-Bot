@@ -1,0 +1,12 @@
+{
+  "-1234567890101": {
+    "admins": {
+      "1": "123456789",
+      "2": "123456789"
+    },
+    "deadlines": {
+      "1": {"subject": "course 01", "date": "1.2.23", "theme": "smth"},
+      "2": {"subject": "course 02", "date": "2.3.19", "theme": "smth else"}
+    }
+  }
+}
