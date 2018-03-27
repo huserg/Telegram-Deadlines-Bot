@@ -2,17 +2,17 @@ const D = require('./data');
 
 exports.admin = function (ctx, grantOther) {
 
-    var str = ctx.from.first_name + " ";
-    var admins = D.data.getInfos(ctx)['admins'];
+    let str = ctx.from.first_name + " ";
+    let admins = D.data.getInfos(ctx)['admins'];
 
     if (!grantOther) {
 
         if (admins.length == 0){
-            var admin = [ctx.from.id];
+            let admin = [ctx.from.id];
 
             D.data.setGroupAdmin(ctx, admin);
 
-            str += "a activé le bot et est admin."
+            str += "a activé le bot et est admin.";
 
             ctx.reply(str);
         }
@@ -21,16 +21,16 @@ exports.admin = function (ctx, grantOther) {
 
     } else if (admins.indexOf(ctx.from.id) >= 0) {
 
-        var newAdminId = ctx.message.text.split(' ')[1];
+        let newAdminId = ctx.message.text.split(' ')[1];
 
         if (typeof newAdminId === 'undefined'){
             str = 'List des admins : \r\n';
-            var promises = [];
-            for (var i = 0; i<admins.length; i++){
+            let promises = [];
+            for (let i = 0; i<admins.length; i++){
                 promises[i] = ctx.telegram.getChatMember(ctx.chat.id, admins[i]);
             }
             Promise.all(promises).then(function (values){
-                for (var i = 0; i<admins.length; i++)
+                for (let i = 0; i<admins.length; i++)
                     str += values[i].user.username + "\r\n";
                 return ctx.reply(str);
             });
@@ -49,10 +49,10 @@ exports.admin = function (ctx, grantOther) {
             return ctx.reply(str);
         }
 
-        var promise = ctx.telegram.getChatMember(ctx.chat.id, newAdminId);
+        let promise = ctx.telegram.getChatMember(ctx.chat.id, newAdminId);
 
         promise.then(function (userInfo) {
-            var member = userInfo.user.username;
+            let member = userInfo.user.username;
 
             admins.push(newAdminId);
 
@@ -61,7 +61,7 @@ exports.admin = function (ctx, grantOther) {
             str += "a ajouté " + member + " aux admins!\r\n";
             str += "Liste des admins : \r\n";
 
-            for (var i = 0; i<admins.length; i++){
+            for (let i = 0; i<admins.length; i++){
                 str += admins[i] + "\r\n";
             }
 

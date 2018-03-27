@@ -1,16 +1,23 @@
 const D = require('./data');
+const DateFormat = require('moment');
 
 exports.list = function (ctx) {
 
-    var str = '';
+    let str = '';
 
-    var deadlines = D.data.getInfos(ctx)['deadlines'];
+    let deadlines = D.data.getInfos(ctx)['deadlines'];
 
-    for (var i = 0; i<deadlines.length; i++){
-        str += "📆" + deadlines[i].date + " \r\n";
+    deadlines.sort(function (a,b){
+        a = new Date(a.date);
+        b = new Date(b.date);
+        return a>b ? 1 : a<b ? -1 : 0;
+    });
+
+    for (let i = 0; i<deadlines.length; i++) {
+        str += "📆" + DateFormat(deadlines[i].date, 'L').format('DD-MM-YYYY') + " \r\n";
         str += "📋" + deadlines[i].subject + " \r\n";
         str += "📝" + deadlines[i].theme + " \r\n";
-        str += "\r\n\r\n";
+        str += "\r\n";
     }
 
     return ctx.reply(str);

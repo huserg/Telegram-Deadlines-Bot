@@ -27,6 +27,5 @@ bot.command('list', (ctx) => c.commands.list(ctx));
 bot.command('add', (ctx) => c.commands.add(ctx));
 
 
-
 bot.startPolling();
 

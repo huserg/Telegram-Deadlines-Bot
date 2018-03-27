@@ -7,18 +7,23 @@
     "deadlines": [
       {
         "subject": "SAP de merde",
-        "date": "21-04-2018",
+        "date": "05/21/2018",
         "theme": "Exam de mes couilles"
       },
       {
         "subject": "un projet qui pue",
-        "date": "30-04-2018",
+        "date": "04/30/2018",
         "theme": "hé ouais la bise"
       },
       {
         "subject": "un autre cours qui pue",
-        "date": "26-04-2018",
+        "date": "04/26/2018",
         "theme": "encore un exam pourri"
+      },
+      {
+        "subject": "nen",
+        "date": "02/28/2018",
+        "theme": "vs ecsecsfs se"
       }
     ]
   }

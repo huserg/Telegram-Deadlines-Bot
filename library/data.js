@@ -44,7 +44,7 @@ exports.data = {
 
     addNewDeadline: function(ctx, subject, date, theme){
 
-        var deadlines = this.getInfos(ctx)['deadlines'];
+        let deadlines = this.getInfos(ctx)['deadlines'];
         deadlines.push({"subject": subject, "date": date, "theme": theme});
         this.DATA[ctx.chat.id]['deadlines'] = deadlines;
         this.__write();
