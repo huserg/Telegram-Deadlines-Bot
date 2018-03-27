@@ -10,7 +10,7 @@ exports.data = {
     
     __write: function () {
         jsonfile.writeFile(this.DATA_FILE, this.DATA, {spaces: 2}, function (err) {
-            console.error(err)
+            if (err != null) console.error("Error: " + err)
         });
     },
 
@@ -18,8 +18,8 @@ exports.data = {
         this.__read();
         if(!this.DATA.hasOwnProperty(ctx.chat.id)){
             this.setGroup(ctx, {
-                admins: {},
-                deadlines: {}
+                admins: [],
+                deadlines: []
             });
         }
         return this.DATA[ctx.chat.id];
@@ -30,24 +30,25 @@ exports.data = {
         this.__write();
     },
 
-    clearGroup: function(ctx){
 
-        this.DATA[ctx.chat.id] = undefined;
+    setGroupAdmin: function(ctx, admins){
+        if(typeof this.DATA[ctx.chat.id] === 'undefined'){
+            this.DATA[ctx.chat.id] = {
+                admins: [],
+                deadlines: []
+            };
+        }
+        this.DATA[ctx.chat.id]['admins'] = admins;
         this.__write();
     },
 
-    setGroupAdmin: function(ctx, admin){
+    addNewDeadline: function(ctx, subject, date, theme){
 
-        if(typeof this.DATA[ctx.chat.id] === 'undefined'){
-            this.DATA[ctx.chat.id] = {
-                admins: {}
-            };
-        }
-
-        this.DATA[ctx.chat.id]['person'][ctx.from.id] = {
-            id: ctx.from.id,
-            admins: admin
-        };
+        var deadlines = this.getInfos(ctx)['deadlines'];
+        deadlines.push({"subject": subject, "date": date, "theme": theme});
+        this.DATA[ctx.chat.id]['deadlines'] = deadlines;
         this.__write();
     }
+
+
 };

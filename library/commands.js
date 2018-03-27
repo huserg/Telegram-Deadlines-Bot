@@ -10,7 +10,7 @@ exports.commands = {
     add: function (ctx) {
         Add.add(ctx);
     },
-    class: function (ctx) {
-        Admin.admin(ctx);
+    admin: function (ctx, admin) {
+        Admin.admin(ctx, admin);
     }
 };

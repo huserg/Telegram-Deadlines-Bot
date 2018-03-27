@@ -1,0 +1,25 @@
+{
+  "-1001075323672": {
+    "admins": [
+      371393616,
+      369878688
+    ],
+    "deadlines": [
+      {
+        "subject": "SAP de merde",
+        "date": "21-04-2018",
+        "theme": "Exam de mes couilles"
+      },
+      {
+        "subject": "un projet qui pue",
+        "date": "30-04-2018",
+        "theme": "hé ouais la bise"
+      },
+      {
+        "subject": "un autre cours qui pue",
+        "date": "26-04-2018",
+        "theme": "encore un exam pourri"
+      }
+    ]
+  }
+}
