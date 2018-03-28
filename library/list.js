@@ -7,16 +7,25 @@ exports.list = function (ctx) {
 
     let deadlines = D.data.getInfos(ctx)['deadlines'];
 
-    deadlines.sort(function (a,b){
+    let deadlinesToCome = [];
+    let j = 0;
+    for (let i = 0; i<deadlines.length; i++) {
+        if(new Date(deadlines[i].date) > Date.now()) {
+            deadlinesToCome[j] = deadlines[i];
+            j++;
+        }
+    }
+
+    deadlinesToCome.sort(function (a,b){
         a = new Date(a.date);
         b = new Date(b.date);
         return a>b ? 1 : a<b ? -1 : 0;
     });
 
-    for (let i = 0; i<deadlines.length; i++) {
-        str += "📆" + DateFormat(deadlines[i].date, 'L').format('DD-MM-YYYY') + " \r\n";
-        str += "📋" + deadlines[i].subject + " \r\n";
-        str += "📝" + deadlines[i].theme + " \r\n";
+    for (let i = 0; i<deadlinesToCome.length; i++) {
+        str += "📆" + DateFormat(deadlinesToCome[i].date, 'L').format('DD-MM-YYYY') + " \r\n";
+        str += "📋" + deadlinesToCome[i].subject + " \r\n";
+        str += "📝" + deadlinesToCome[i].theme + " \r\n";
         str += "\r\n";
     }
 
