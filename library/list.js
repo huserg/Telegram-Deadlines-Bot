@@ -20,5 +20,9 @@ exports.list = function (ctx) {
         str += "\r\n";
     }
 
+    if (str == ''){
+        str = 'Aucune deadline à venir!';
+    }
+
     return ctx.reply(str);
 }
