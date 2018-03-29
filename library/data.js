@@ -19,7 +19,8 @@ exports.data = {
         if(!this.DATA.hasOwnProperty(ctx.chat.id)){
             this.setGroup(ctx, {
                 admins: [],
-                deadlines: []
+                deadlines: [],
+                thx: []
             });
         }
         return this.DATA[ctx.chat.id];
@@ -35,7 +36,8 @@ exports.data = {
         if(typeof this.DATA[ctx.chat.id] === 'undefined'){
             this.DATA[ctx.chat.id] = {
                 admins: [],
-                deadlines: []
+                deadlines: [],
+                thx: []
             };
         }
         this.DATA[ctx.chat.id]['admins'] = admins;
@@ -48,7 +50,13 @@ exports.data = {
         deadlines.push({"subject": subject, "date": date, "theme": theme});
         this.DATA[ctx.chat.id]['deadlines'] = deadlines;
         this.__write();
-    }
+    },
 
+    saidThx: function(ctx){
+        let thx = this.getInfos(ctx)['thx'];
+        thx.push(ctx.from.id);
+        this.DATA[ctx.chat.id]['thx'] = thx;
+        this.__write();
+    }
 
 };

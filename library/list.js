@@ -3,7 +3,13 @@ const DateFormat = require('moment');
 
 exports.list = function (ctx) {
 
-    let str = '';
+    let str = 'Tu pourrais dire /merci avant quand même ;)\r\n\r\n';
+
+    let thx = D.data.getInfos(ctx)['thx'];
+
+    if (thx.indexOf(ctx.from.id) >= 0){
+        str = '';
+    }
 
     let deadlines = D.data.getInfos(ctx)['deadlines'];
 

@@ -7,6 +7,10 @@
     "deadlines": [
       {"subject": "course 01", "date": "1.2.23", "theme": "smth"},
       {"subject": "course 02", "date": "2.3.19", "theme": "smth else"}
+    ],
+    "thx": [
+      "123456789",
+      "123456789"
     ]
   }
 }
