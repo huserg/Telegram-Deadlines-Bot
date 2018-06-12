@@ -21,11 +21,12 @@ exports.list = function (ctx) {
     let deadlines = D.data.getInfos(ctx)['deadlines'];
 
     let deadlinesToCome = [];
-    let deadlinesindexes = [];
     let j = 0;
     for (let i = 0; i<deadlines.length; i++) {
         if(new Date(deadlines[i].date) > dateToCompare) {
-            deadlinesindexes[j] = [i];
+            if (extended)
+                str += "👁 " + i + "\n";
+
             deadlinesToCome[j] = deadlines[i];
             j++;
         }
@@ -38,8 +39,6 @@ exports.list = function (ctx) {
     });
 
     for (let i = 0; i<deadlinesToCome.length; i++) {
-        if (extended)
-            str += "👁 " + deadlinesindexes[i] + "\n";
         str += "📆 " + DateFormat(deadlinesToCome[i].date, 'L').format('DD-MM-YYYY') + " \r\n";
         str += "📋 " + deadlinesToCome[i].subject + " \r\n";
         str += "📝 " + deadlinesToCome[i].theme + " \r\n";
