@@ -3,6 +3,12 @@ const DateFormat = require('moment');
 
 exports.list = function (ctx) {
 
+    let extended = ctx.message.text.split(" ");
+    extended = (extended[1] === "-e");
+
+    let dateToCompare = new Date();
+    dateToCompare.setDate(dateToCompare.getDate() -1);
+
     let str = 'Tu pourrais dire /merci avant quand même ;)\r\n\r\n';
 
     let thx = D.data.getInfos(ctx)['thx'];
@@ -11,12 +17,16 @@ exports.list = function (ctx) {
         str = '';
     }
 
+
     let deadlines = D.data.getInfos(ctx)['deadlines'];
 
     let deadlinesToCome = [];
     let j = 0;
     for (let i = 0; i<deadlines.length; i++) {
-        if(new Date(deadlines[i].date) > Date.now()) {
+        if(new Date(deadlines[i].date) > dateToCompare) {
+            if (extended)
+                str += "👁 " + i + "\n";
+
             deadlinesToCome[j] = deadlines[i];
             j++;
         }
@@ -29,9 +39,9 @@ exports.list = function (ctx) {
     });
 
     for (let i = 0; i<deadlinesToCome.length; i++) {
-        str += "📆" + DateFormat(deadlinesToCome[i].date, 'L').format('DD-MM-YYYY') + " \r\n";
-        str += "📋" + deadlinesToCome[i].subject + " \r\n";
-        str += "📝" + deadlinesToCome[i].theme + " \r\n";
+        str += "📆 " + DateFormat(deadlinesToCome[i].date, 'L').format('DD-MM-YYYY') + " \r\n";
+        str += "📋 " + deadlinesToCome[i].subject + " \r\n";
+        str += "📝 " + deadlinesToCome[i].theme + " \r\n";
         str += "\r\n";
     }
 

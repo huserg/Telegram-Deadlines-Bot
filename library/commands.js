@@ -1,5 +1,6 @@
 const List = require('./list');
 const Add = require('./add');
+const Delete = require('./delete');
 const Admin = require('./admin');
 const Merci = require('./merci');
 
@@ -10,6 +11,9 @@ exports.commands = {
     },
     add: function (ctx) {
         Add.add(ctx);
+    },
+    delete: function (ctx) {
+        Delete.delete(ctx);
     },
     admin: function (ctx, admin) {
         Admin.admin(ctx, admin);

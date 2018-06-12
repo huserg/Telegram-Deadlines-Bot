@@ -57,6 +57,14 @@ exports.data = {
         thx.push(ctx.from.id);
         this.DATA[ctx.chat.id]['thx'] = thx;
         this.__write();
+    },
+
+    deleteDeadline: function (ctx, id) {
+        let deadlines = this.getInfos(ctx)['deadlines'];
+        deadlines.splice(id, 1);
+        this.DATA[ctx.chat.id]['deadlines'] = deadlines;
+        this.__write();
+
     }
 
 };

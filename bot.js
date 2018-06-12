@@ -26,7 +26,7 @@ bot.command('admin', (ctx) => c.commands.admin(ctx, true));
 bot.command('list', (ctx) => c.commands.list(ctx));
 bot.command('add', (ctx) => c.commands.add(ctx));
 bot.command('merci', (ctx) => c.commands.merci(ctx));
-
+bot.command('delete', (ctx) => c.commands.delete(ctx));
 
 bot.startPolling();
 
