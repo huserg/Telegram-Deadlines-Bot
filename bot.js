@@ -1,8 +1,12 @@
+global.__basedir = __dirname;
+
 const Telegraf = require('telegraf');
 const config = require('./config');
 const bot = new Telegraf(config.API_KEY);
 const c = require('./library/commands');
 
+
+console.log(__basedir);
 
 /*
  *  Console output Bot Username

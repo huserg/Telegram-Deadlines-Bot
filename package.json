@@ -13,8 +13,8 @@
     "url": "git+gitlab.r-men.ch/rmen/hes-exa-bot.git"
   },
   "dependencies": {
-    "telegraf": "^3.16.0",
     "jsonfile": "^4.0.0",
-    "moment": "^2.21.0"
+    "moment": "^2.21.0",
+    "telegraf": "^3.16.0"
   }
 }

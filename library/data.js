@@ -1,7 +1,7 @@
 const jsonfile = require('jsonfile');
 
 exports.data = {
-    DATA_FILE: '../data/data.json',
+    DATA_FILE: __basedir + '/data/data.json',
     DATA: {},
 
     __read: function(){
