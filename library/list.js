@@ -41,8 +41,10 @@ exports.list = function (ctx) {
     let files = {};
 
     for (let i = 0; i<deadlinesToCome.length; i++) {
-        if(deadlinesToCome[i].callback === "true")
-            files[deadlinesToCome[i].file] = deadlinesToCome[i].file;
+        if(deadlinesToCome[i].callback === "true") {
+                files[deadlinesToCome[i].file] = deadlinesToCome[i].file;
+
+            }
         if (extended)
             str += "👁 " + deadlinesindexes[i] + "\n";
         str += "📆 " + DateFormat(deadlinesToCome[i].date, 'L').format('DD-MM-YYYY') + " \r\n";
@@ -51,8 +53,9 @@ exports.list = function (ctx) {
         str += "\r\n";
     }
 
-    let buttons = Object.keys(files).map(key => tg.Markup.callbackButton(key, `${files[key]}`));
-    let button = tg.Extra.HTML().markup((m) => m.inlineKeyboard([buttons]));
+    let buttons = Object.keys(files).map(key => [tg.Markup.callbackButton(key, `${files[key]}`)]);
+    let button = tg.Extra.HTML().markup((m) => m.inlineKeyboard(buttons));
+
 
     if (str == ''){
         str = 'Aucune deadline à venir!';
