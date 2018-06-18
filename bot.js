@@ -33,5 +33,11 @@ bot.command('merci', (ctx) => c.commands.merci(ctx));
 bot.command('delete', (ctx) => c.commands.delete(ctx));
 bot.command('ask', (ctx) => c.commands.ask(ctx));
 
+/*
+ * Bot callbacks
+ */
+
+bot.on('callback_query', (ctx) => c.commands.list_callback(ctx));
+
 bot.startPolling();
 

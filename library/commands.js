@@ -23,5 +23,8 @@ exports.commands = {
     },
     ask: function (ctx) {
         Ask.ask(ctx);
+    },
+    list_callback: function (ctx) {
+        Ask.callback(ctx);
     }
 };

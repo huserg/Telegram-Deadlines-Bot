@@ -1,5 +1,6 @@
 const D = require('./data');
 const DateFormat = require('moment');
+const tg = require('telegraf');
 
 exports.list = function (ctx) {
 
@@ -37,7 +38,11 @@ exports.list = function (ctx) {
         return a>b ? 1 : a<b ? -1 : 0;
     });
 
+    let files = {};
+
     for (let i = 0; i<deadlinesToCome.length; i++) {
+        if(deadlinesToCome[i].callback === "true")
+            files[deadlinesToCome[i].file] = deadlinesToCome[i].file;
         if (extended)
             str += "👁 " + deadlinesindexes[i] + "\n";
         str += "📆 " + DateFormat(deadlinesToCome[i].date, 'L').format('DD-MM-YYYY') + " \r\n";
@@ -46,9 +51,12 @@ exports.list = function (ctx) {
         str += "\r\n";
     }
 
+    let buttons = Object.keys(files).map(key => tg.Markup.callbackButton(key, `${files[key]}`));
+    let button = tg.Extra.HTML().markup((m) => m.inlineKeyboard([buttons]));
+
     if (str == ''){
         str = 'Aucune deadline à venir!';
     }
 
-    return ctx.reply(str);
-}
+    return ctx.reply(str, button);
+};

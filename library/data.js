@@ -44,10 +44,10 @@ exports.data = {
         this.__write();
     },
 
-    addNewDeadline: function(ctx, subject, date, theme){
+    addNewDeadline: function(ctx, subject, date, theme, callback, file){
 
         let deadlines = this.getInfos(ctx)['deadlines'];
-        deadlines.push({"subject": subject, "date": date, "theme": theme});
+        deadlines.push({"subject": subject, "date": date, "theme": theme, "callback": callback, "file": file});
         this.DATA[ctx.chat.id]['deadlines'] = deadlines;
         this.__write();
     },

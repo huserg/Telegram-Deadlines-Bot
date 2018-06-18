@@ -11,23 +11,23 @@ exports.add = function (ctx) {
         let subject = command[0].split(/ (.+)/)[1];
         let date = command[1];
         let theme = command[2];
+        let callback = command[3];
+        let file = null;
+        if (command[4])
+            file = command[4];
 
         date = DateFormat(date, 'DD-MM-YYYY').format('L');
 
-        if (typeof subject === 'undefined' || typeof date === 'undefined' || typeof theme === 'undefined')
-            return ctx.reply("Invalid format! The right format is : \r\n/add your subject;DD-MM-YYYY;your theme or topic");
+        if (typeof subject === 'undefined' || typeof date === 'undefined' || typeof theme === 'undefined' || typeof callback === 'undefined')
+            return ctx.reply("Invalid format! The right format is : \r\n/add your subject;DD-MM-YYYY;your theme or topic;file?true|false;filename");
 
         if (isNaN(Date.parse(date)))
             return ctx.reply(date + " is not a valid format for a date.");
 
-        D.data.addNewDeadline(ctx, subject, date, theme);
+        D.data.addNewDeadline(ctx, subject, date, theme, callback, file);
 
         return ctx.reply("" +
-            "New Deadline added ! \r\n\r\n" +
-            "Subject : " + subject + " \r\n" +
-            "Date : " + DateFormat(date, 'L').format('DD-MM-YYYY') + " \r\n" +
-            "Theme : " + theme);
-
+            subject + " Deadline added ! \r\n");
     }
 }
 
