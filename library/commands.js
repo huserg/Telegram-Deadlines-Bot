@@ -3,7 +3,7 @@ const Add = require('./add');
 const Delete = require('./delete');
 const Admin = require('./admin');
 const Merci = require('./merci');
-
+const Ask = require('./ask');
 
 exports.commands = {
     list: function (ctx) {
@@ -20,5 +20,8 @@ exports.commands = {
     },
     merci: function (ctx, admin) {
         Merci.merci(ctx, admin);
+    },
+    ask: function (ctx) {
+        Ask.ask(ctx);
     }
 };
