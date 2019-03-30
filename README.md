@@ -1,4 +1,8 @@
-#BEFORE LAUNCHING BOT :
+# Telegram-Deadlines-Bot
+A node.JS bot based on telegraph to manage deadlines
+
+
+## BEFORE LAUNCHING BOT :
 
 - install node dependencies with
     ```
