@@ -47,3 +47,9 @@ Add a Telegram user ID to add it to the admin list
 ### Asking a file to the bot 
 
     /ask <filename>
+
+
+
+## Credits 
+
+The Telegram-Deadlines-Bot picture located in `data/ask/profile.jpg`, ["Mädchen mit Wecker in Händen"](https://flic.kr/p/27knUuyM) is copyright (c) 2018 Marco Berch and made available under the [Creative Commons 2.0 license](https://creativecommons.org/licenses/by/2.0/)
