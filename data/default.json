@@ -5,8 +5,8 @@
       "123456789"
     ],
     "deadlines": [
-      {"subject": "course 01", "date": "1.2.23", "theme": "smth", "callback" : true, "file" : "2018xxxx_myfile.png"},
-      {"subject": "course 02", "date": "2.3.19", "theme": "smth else", "callback" : false}
+      {"subject": "course 01", "date": "1.2.45", "theme": "smth", "callback" : true, "file" : "profile.jpg"},
+      {"subject": "course 02", "date": "2.3.46", "theme": "smth else", "callback" : false}
     ],
     "thx": [
       "123456789",
