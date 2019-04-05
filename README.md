@@ -33,13 +33,17 @@ When you add the bot in a group, you have to claim your rights by typing
 
 Then this command will display the list of admins
 
+    /admin
+
 Add a Telegram user ID to add it to the admin list 
 
     /admin <telegram_user_id>
 
 ### Adding a deadline
 
-    /add your subject;DD-MM-YYYY;your theme or topic;file?true|false;filename
+    /add your subject;DD-MM-YYYY;your theme or topic;false
+    
+    /add your subject;DD-MM-YYYY;your theme or topic;true;filename
     
 ### Listing deadlines
 
