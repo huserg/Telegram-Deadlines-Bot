@@ -29,7 +29,6 @@ bot.start((ctx) => c.commands.admin(ctx, false));
 bot.command('admin', (ctx) => c.commands.admin(ctx, true));
 bot.command('list', (ctx) => c.commands.list(ctx));
 bot.command('add', (ctx) => c.commands.add(ctx));
-bot.command('merci', (ctx) => c.commands.merci(ctx));
 bot.command('delete', (ctx) => c.commands.delete(ctx));
 bot.command('ask', (ctx) => c.commands.ask(ctx));
 

@@ -10,7 +10,7 @@ exports.list = function (ctx) {
     let dateToCompare = new Date();
     dateToCompare.setDate(dateToCompare.getDate() -1);
 
-    let str = 'Tu pourrais dire /merci avant quand même ;)\r\n\r\n';
+    let str = 'Voici la liste : \r\n\r\n';
 
     let thx = D.data.getInfos(ctx)['thx'];
 
