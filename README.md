@@ -16,7 +16,7 @@ module.exports = {API_KEY: 'YOUR BOT API KEY HERE'};
 
 create also the `data/data.json` file and add : 
 ```
-[]
+{}
 ``` 
 
 finally launch the bot with `telegram-deadline-bot.js` file
