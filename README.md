@@ -14,6 +14,11 @@ then create `config.js` file at the root of the project and add :
 module.exports = {API_KEY: 'YOUR BOT API KEY HERE'};
 ```
 
+create also the `data/data.json` file and add : 
+```
+{}
+``` 
+
 finally launch the bot with `telegram-deadline-bot.js` file
 
 ## How to use it
@@ -24,7 +29,7 @@ All commands are done in Telegram
 
 When you add the bot in a group, you have to claim your rights by typing
 
-    /admin 
+    /start 
 
 Then this command will display the list of admins
 
